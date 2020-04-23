@@ -4,31 +4,35 @@
 // renderizar resultado na tela = OK!
 // estilizar
 
-function converter() {
+// FUNÇÃO CHAMADA COM CLIQUE DO BOTÃO
+function bin2Dec() {
   var bin = document.querySelector('input').value;
-
   var test = verify(bin);
+  var dec = converter(test, bin);
+}
 
-  if (test == true) {
-    var position = bin.length - 1;
+// FUNÇÃO QUE CONVERTE O NÚMERO BINÁRIO EM DECIMAL
+function converter(testResult, binaryNumber) {
+  if (testResult == true) {
+    var position = binaryNumber.length - 1;
     var dec = 0;
 
-    for (digit of bin) {
+    for (digit of binaryNumber) {
       dec += Math.pow(2, position) * digit;
       position--;
     }
 
     showDec(dec);
 
-    console.log(dec);
-    console.log('ok');
   } else {
     alert("Digite apenas 0's e 1's !");
   }
 }
 
+// FUNÇÃO PARA RENDERIZAR RESULTADO DA CONVERSÃO
 function showDec(decimal) {
   var showResult = document.querySelector('#result');
+  showResult.innerHTML = '';
   var result = document.createElement('p');
   var resultValue = document.createTextNode(decimal);
 
@@ -36,6 +40,7 @@ function showDec(decimal) {
   result.appendChild(resultValue);
 }
 
+// FUNÇÃO PARA VALIDAR O NUMERO ENVIADO PELO USUÁRIO
 function verify(binary) {
   var test = true;
 
