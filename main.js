@@ -32,11 +32,9 @@ function converter(testResult, binaryNumber) {
 // FUNÇÃO PARA RENDERIZAR RESULTADO DA CONVERSÃO
 function showDec(decimal) {
   var showResult = document.querySelector('#result');
-  showResult.innerHTML = '';
-  var result = document.createElement('p');
+  var result = document.querySelector('p');
+  result.innerHTML = '';
   var resultValue = document.createTextNode(decimal);
-
-  showResult.appendChild(result);
   result.appendChild(resultValue);
 }
 
